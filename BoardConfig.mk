@@ -103,11 +103,47 @@ VENDOR_SECURITY_PATCH := 2099-12-31
 PLATFORM_VERSION := 16.1.0
 
 # TWRP Configuration
-TW_THEME := portrait_hdpi
-TW_EXTRA_LANGUAGES := true
-TW_SCREEN_BLANK_ON_BOOT := true
+TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
+TW_MAX_BRIGHTNESS := 255
 TW_INPUT_BLACKLIST := "hbtp_vm"
-TW_USE_TOOLBOX := true
+TW_CUSTOM_CPU_TEMP_PATH := "/sys/class/thermal/thermal_zone28/temp"
+TW_EXCLUDE_APEX := true
+TW_EXCLUDE_TWRPAPP := true
+TW_BACKUP_EXCLUSIONS := /data/fonts/files
+TW_USE_SERIALNO_PROPERTY_FOR_DEVICE_ID := true
+TW_HAS_MTP := true
+
+# For USB OTG
+TW_EXCLUDE_DEFAULT_USB_INIT := true
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.usb0/lun.%d/file
+
+# Filesystem tools
+TW_INCLUDE_NTFS_3G := true
+TW_INCLUDE_FUSE_EXFAT := true
+TW_INCLUDE_FUSE_NTFS := true
+TARGET_USES_MKE2FS := true
+
+# Display
+TW_NO_SCREEN_BLANK := true
+
+# UI
+TW_THEME := portrait_hdpi
+TW_FRAMERATE := 60
+TW_STATUS_ICONS_ALIGN := center
+TW_CUSTOM_CPU_POS := 50
+TW_CUSTOM_CLOCK_POS := 300
+TW_CUSTOM_BATTERY_POS := 800
+
+# Handle /data/media
+RECOVERY_SDCARD_ON_DATA := true
+
+# TWRP binaries tools
+TW_EXCLUDE_NANO := true
+TW_INCLUDE_LPDUMP := true
+TW_INCLUDE_LPTOOLS := true
+TW_INCLUDE_RESETPROP := true
+TW_INCLUDE_LIBRESETPROP := true
+TW_INCLUDE_REPACKTOOLS := true
 
 # Debug
 TARGET_USES_LOGD := true
